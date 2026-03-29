@@ -1,0 +1,15 @@
+ANO_influence_category = {
+    icon = generic_political_actions
+
+    allowed = {
+        tag = ANO
+    }
+    visible = {
+        tag = ANO
+    }
+
+    visible_when_empty = no
+    priority = 50
+
+    scripted_gui = ANO_influence_sg
+}

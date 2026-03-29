@@ -1,0 +1,153 @@
+division_template = {
+	name = "Strelkovaya Diviziya"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Strelkovaya Brigada"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+	}
+}
+
+division_template = {
+	name = "Gvardeyskaya Brigada"
+	regiments = {
+		elite_infantry = { x = 0 y = 0 }
+		elite_infantry = { x = 0 y = 1 }
+		elite_infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		artillery_brigade = { x = 2 y = 0 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Territorialnoy Oborony Batalon"
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		light_infantry = { x = 0 y = 1 }
+		light_infantry = { x = 0 y = 2 }
+	}
+	support = {
+	}
+}
+
+division_template = {
+	name = "Mekhanizirovanaya Brigada"
+	regiments = {
+		MBT = { x = 0 y = 0 }
+		MBT = { x = 0 y = 1 }
+		IFV = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		mot_recon = { x = 0 y = 0 }
+	}
+}
+
+units = {
+	# === 沃洛格达驻军（首府，主力） ===
+
+	# 第1近卫旅 — 精锐部队，驻守沃洛格达
+	division = {
+		name = "1-ya Gvardeyskaya Brigada"
+		location = 9131
+		division_template = "Gvardeyskaya Brigada"
+		start_experience_factor = 0.8
+		start_equipment_factor = 1
+	}
+
+	# 第1步兵师 — 驻守沃洛格达
+	division = {
+		name = "1-ya Strelkovaya Diviziya"
+		location = 9131
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.6
+		start_equipment_factor = 1
+	}
+
+	# === 科斯特罗马方向 ===
+
+	# 第2步兵师 — 驻守科斯特罗马
+	division = {
+		name = "2-ya Strelkovaya Diviziya"
+		location = 3190
+		division_template = "Strelkovaya Diviziya"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+
+	# === 谢苗诺夫方向（南部前线） ===
+
+	# 第1步兵旅 — 驻守谢苗诺夫
+	division = {
+		name = "1-ya Strelkovaya Brigada"
+		location = 9368
+		division_template = "Strelkovaya Brigada"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.9
+	}
+
+	# 第1机械化旅 — 机动预备队
+	division = {
+		name = "1-ya Mekhanizirovanaya Brigada"
+		location = 9368
+		division_template = "Mekhanizirovanaya Brigada"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+	}
+
+	# === 曼图罗沃（首都） ===
+
+	# 国土防卫第1营
+	division = {
+		name = "1-y Territorialnoy Oborony Batalon"
+		location = 11075
+		division_template = "Territorialnoy Oborony Batalon"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+
+	# === 沙里亚方向（东部边境） ===
+
+	# 第2步兵旅
+	division = {
+		name = "2-ya Strelkovaya Brigada"
+		location = 112
+		division_template = "Strelkovaya Brigada"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.8
+	}
+
+	# 国土防卫第2营
+	division = {
+		name = "2-y Territorialnoy Oborony Batalon"
+		location = 112
+		division_template = "Territorialnoy Oborony Batalon"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+}

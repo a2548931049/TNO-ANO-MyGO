@@ -1,0 +1,289 @@
+# ==========================================
+# ANO - History File (Cleaned & Fixed)
+# ==========================================
+
+capital = 351 
+
+# 移除原有招募代码，防止与科米冲突
+# recruit_character = KOM_Generic_Vacant (已移除)
+
+set_country_flag = is_russian_nation
+set_country_flag = tno_playable_country
+set_country_flag = tno_defined_startup_effectiveness
+set_country_flag = is_west_russian_warlord
+set_country_flag = ANO_influence_system_active
+
+# --- 影响力系统初始化 ---
+set_variable = { ANO_influence = 0 }
+set_variable = { WRS_influence = 10 }
+
+# --- 军队 OOB 设置 ---
+set_oob = "ANO_1962"
+
+add_manpower = 15000
+set_research_slots = 3
+
+# --- 政治设置 ---
+
+set_popularities = {
+	progressivism = 100
+}
+
+set_politics = {
+	ruling_party = progressivism
+	last_election = "1959.3.5"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+# --- 主要角色 (MyGO!!!!!) ---
+recruit_character = ANO_Tomorin
+recruit_character = ANO_chihaya_anon
+recruit_character = KOM_Nikolai_Voznesensky_1
+recruit_character = ANO_rikki
+recruit_character = ANO_Rana
+recruit_character = ANO_Soyo
+# --- 通用将领/顾问 ---
+recruit_character = ANO_viktor_petrov
+recruit_character = ANO_elena_sorokina
+recruit_character = ANO_dmitri_volkov
+recruit_character = ANO_ivan_korolev
+recruit_character = ANO_alexei_morozov
+# --- 初始领袖为高松灯 ---
+promote_character = ANO_Tomorin
+
+# --- 国策树 ---
+# 建议先注释掉科米国策，因为它包含大量科米独有的变量判定
+# load_focus_tree = KOM_pre_election
+
+# --- 民族精神 (Ideas) ---
+add_ideas = {
+	#standard#
+	RUS_terror_bombing
+	RUS_warlord_manpower
+	RUS_warlord_econ
+	# KOM_syvtyvkartsi # 這是科米专属buff，如果不想要可以删掉
+	# KOM_clash_of_shadows_c_1 # 同样是科米专属
+	RUS_syktyvkar_arsenal
+	ANO_refugee_crisis
+	ANO_double_headed_regime
+	
+	# Ministers (原版使用的是角色系统，这里保留Idea形式的内阁作为备用)
+	# 如果这些Idea定义在common/ideas里且不绑定角色，它们可以用。
+	# 如果它们绑定了KOM角色，可能无效。建议保留观察。
+	
+	#political#
+	tno_political_parties_multiparty_system
+	tno_religious_rights_secularism
+	tno_trade_unions_all_allowed
+	tno_immigration_quota_immigration
+	tno_slavery_abolished
+	tno_public_meetings_allowed
+	tno_press_rights_free_press
+	tno_vote_franchise_universal
+	#military#
+	tno_conscription_broadened_conscription
+	tno_military_supervision_rules_of_engagement
+	tno_training_basic_training
+	tno_draft_exemptions_none
+	#economic#
+	tno_trade_laws_export_focus
+	tno_income_taxation_low_income_taxation
+	tno_minimum_wage_adequate_minimum_wage
+	tno_max_workhours_10_hour_work_day
+	tno_pensions_adequate_pensions
+	tno_unemployment_adequate_subsidies
+	#social#
+	tno_health_care_basic_health_care
+	tno_education_public_education
+	tno_penal_system_incarceration
+	tno_gender_rights_equal_rights
+	tno_security_crime_prevention
+	tno_regulations_moderate_regulations
+	#misc#
+	tno_pollution_few_regulations
+	tno_safety_minimal_regulations
+	tno_child_labor_illegal
+	tno_refugees_skilled
+	tno_racial_integration_integrated_military
+	tno_women_combat_roles
+	tno_minorities_equal_rights
+	tno_lgbt_rights_lgbt_tolerated
+	##SOCIETAL DEVELOPMENT##
+	
+	tno_army_professionalism_developing
+	tno_industrial_expertise_nascent
+	tno_industrial_equipment_power_tools
+	tno_agriculture_basic_mechanized
+	tno_healthcare_developing
+	tno_research_facilities_basic
+	tno_academic_base_developing_education
+}
+
+# --- 法律效能变量 ---
+set_variable = { tno_trade_laws_effectiveness = 75 }
+set_variable = { tno_income_taxation_effectiveness = 55 }
+set_variable = { tno_minimum_wage_effectiveness = 50 }
+set_variable = { tno_max_workhours_effectiveness = 55 }
+set_variable = { tno_pensions_effectiveness = 55 }
+set_variable = { tno_unemployment_effectiveness = 55 }
+set_variable = { tno_regulations_effectiveness = 55 }
+
+set_variable = { tno_health_care_effectiveness = 50 }
+set_variable = { tno_education_effectiveness = 60 }
+set_variable = { tno_penal_system_effectiveness = 50 }
+set_variable = { tno_gender_rights_effectiveness = 70 }
+set_variable = { tno_security_effectiveness = 40 }
+
+set_variable = { tno_political_parties_effectiveness = 25 }
+set_variable = { tno_religious_rights_effectiveness = 60 }
+set_variable = { tno_trade_unions_effectiveness = 80 }
+set_variable = { tno_immigration_effectiveness = 35 }
+set_variable = { tno_slavery_effectiveness = 95 }
+set_variable = { tno_public_meetings_effectiveness = 90 }
+set_variable = { tno_press_rights_effectiveness = 85 }
+set_variable = { tno_vote_franchise_effectiveness = 80 }
+
+set_variable = { tno_conscription_effectiveness = 50 }
+set_variable = { tno_military_supervision_effectiveness = 40 }
+set_variable = { tno_training_effectiveness = 60 }
+set_variable = { tno_draft_exemptions_effectiveness = 55 }
+
+# --- 科技设置 ---
+set_technology = {
+	basic_train = 1
+	##INFANTRY##
+	infantry_weapons_1 = 1
+	night_vision_1 = 1
+	infantry_kit_1 = 1
+	infantry_weapons_2 = 1
+	night_vision_2 = 1
+	infantry_kit_2 = 1
+	infantry_weapons_improvements_mine_1 = 1
+	infantry_kit_3 = 1
+	infantry_weapons_improvements_ammo_1 = 1
+	infantry_weapons_improvements_grenade_1 = 1
+	tech_special_forces = 1
+	basic_infantry_equipment = 1
+	support_weapons = 1
+	infantry_at = 1
+	infantry_at_upgrade_1 = 1
+	motorized_infantry = 1
+	##SUPPORT##
+	tech_support = 1
+	tech_engineers = 1
+	assault_weapons_1 = 1
+	tech_military_police = 1
+	tech_recon = 1
+	tech_recon2 = 1
+	##AIRCRAFT##
+	early_fighter = 1
+	fighter_1945 = 1
+	interceptor_1945 = 1
+	CAS_1945 = 1
+	##HEAVY AIRCRAFT##
+	strategic_bomber1 = 1
+	heavy_air_1945 = 1
+	tac_bomber1 = 1
+	tac_air_1945 = 1
+	transport_air1 = 1
+	transport_air_1945 = 1
+	##HELICOPTERS##
+	helicopter_engines = 1
+	very_early_helicopter = 1
+	early_helicopter = 1
+	##ENGINEERING##
+	electronic_mechanical_engineering = 1
+	radio = 1
+	mechanical_computing = 1
+	computing_machine = 1
+	basic_encryption = 1
+	basic_decryption = 1
+	##INDUSTRY##
+	ww2_line_production = 1
+	batch_production_1 = 1
+	building_construction_1 = 1
+	resource_extraction_methods = 1
+	excavation0 = 1
+	energy_technology_1 = 1
+	social_construction_1 = 1
+	military_construction_1 = 1
+}
+
+# NSB Tech Logic
+if = {
+	limit = { NOT = { has_dlc = "No Step Back" } }
+	set_technology = {
+		IFV_1945 = 1
+		MBT_1945 = 1
+		APC_1945 = 1
+		APC_1950 = 1
+		APC_1950_basic_turret = 1
+		IFV_1950 = 1
+		MBT_1950 = 1
+		Heavy_1945 = 1
+		AC_1945 = 1
+		AC_1950 = 1
+		artillery_1945 = 1
+		antiair_1945 = 1
+	}
+}
+if = {
+	limit = { has_dlc = "No Step Back" }
+	set_technology = {
+		NSB_APC_1945 = 1
+		NSB_APC_1950 = 1
+		NSB_IFV_1945 = 1
+		NSB_IFV_1945_modules_1 = 1
+		NSB_IFV_1945_modules_2 = 1
+		NSB_IFV_1950 = 1
+		NSB_MBT_1945 = 1
+		NSB_MBT_1945_modules_1 = 1
+		NSB_MBT_1945_modules_2 = 1
+		NSB_MBT_1950 = 1
+		NSB_AC_1945 = 1
+		NSB_AC_1950 = 1
+		NSB_heavy_1945 = 1
+		NSB_Armour_1 = 1
+		NSB_Engine_1 = 1
+		NSB_artillery_1945 = 1
+		NSB_antiair_1945 = 1
+	}
+}
+
+# --- 坦克设计模板 (可选) ---
+# 这些模板如果不想要可以删掉，保留也不影响
+if = {
+	limit = { has_dlc = "No Step Back" }
+	create_equipment_variant = {
+		name = "T-44"
+		type = MBT_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = MBT_cannon
+			turret_type_slot = MBT_three_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		icon = GFX_WSB_MBT_1945_medium
+		upgrades = { tank_nsb_engine_upgrade = 8 tank_nsb_armor_upgrade = 8 }
+	}
+    # (保留了部分常用模板，其他的为了简洁省略，如需要可补回)
+}
+
+# --- 经济系统变量 ---
+set_variable = { TNO_economy_type = token:Econ_Type_Capitalism }
+set_variable = { TNO_economy_subtype = token:Econ_Subtype_Dirigisme }
+
+# --- 初始库存 ---
+if = {
+	limit = { has_dlc = "No Step Back" }
+	add_equipment_to_stockpile = {
+		type = MBT_chassis_0
+		amount = 40
+		producer = ANO # 注意：这里改成了你的TAG，防止显示是别人的库存
+		variant_name = "T-44"
+	}
+}

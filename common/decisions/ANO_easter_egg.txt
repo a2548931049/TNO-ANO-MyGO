@@ -1,0 +1,38 @@
+####################################
+###  ANO Easter Egg Decision     ###
+####################################
+
+ANO_easter_egg_category = {
+
+    ANO_summon_the_god = {
+        icon = generic_operation
+
+        available = {
+            has_stability > 0.8
+            has_war_support > 0.5
+            num_divisions > 19
+            has_completed_focus = ANO_back_on_track
+        }
+
+        visible = {
+            tag = ANO
+            NOT = { has_country_flag = ANO_sakiko_recruited }
+        }
+
+        fire_only_once = yes
+        days_remove = 7
+        cost = 0
+
+        complete_effect = {
+            set_country_flag = ANO_sakiko_recruited
+            country_event = { id = ANO_easter.1 days = 1 }
+        }
+
+        remove_effect = {
+            recruit_character = ANO_sakiko
+            add_command_power = 200
+            army_experience = 100
+            add_political_power = 200
+        }
+    }
+}

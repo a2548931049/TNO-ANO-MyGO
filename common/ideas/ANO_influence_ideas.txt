@@ -1,0 +1,136 @@
+ideas = {
+    country = {
+
+        # ========================================
+        #  ANO Buff Ideas (花影响力换的)
+        # ========================================
+
+        # 永久 - 外交承认
+        ANO_diplomatic_recognition = {
+            allowed = { always = no }
+            removal_cost = -1
+            picture = generic_political_actions
+
+            modifier = {
+                political_power_factor = 0.10
+                consumer_goods_factor = -0.05
+                trade_opinion_factor = 0.10
+                stability_factor = 0.05
+            }
+        }
+
+        # 限时 - 投资吸引
+        ANO_investment_boost = {
+            allowed = { always = no }
+            removal_cost = -1
+            picture = generic_goods_red_bonus
+
+            modifier = {
+                industrial_capacity_factory = 0.10
+                industrial_capacity_dockyard = 0.10
+            }
+        }
+
+        # 限时 - 军事顾问
+        ANO_military_advisor_boost = {
+            allowed = { always = no }
+            removal_cost = -1
+            picture = generic_manpower_bonus
+
+            modifier = {
+                army_attack_factor = 0.10
+                army_defence_factor = 0.10
+                army_org_regain = 0.05
+            }
+        }
+
+        # 限时 - 科研合作
+        ANO_research_cooperation_boost = {
+            allowed = { always = no }
+            removal_cost = -1
+            picture = generic_research_bonus
+
+            modifier = {
+                research_speed_factor = 0.10
+            }
+        }
+
+        # 限时 - 贸易网络
+        ANO_trade_network_boost = {
+            allowed = { always = no }
+            removal_cost = -1
+            picture = generic_goods_red_bonus
+
+            modifier = {
+                production_speed_buildings_factor = 0.15
+                production_speed_infrastructure_factor = 0.10
+            }
+        }
+
+        # ========================================
+        #  WRS 权力压力 Debuff（加在ANO身上）
+        # ========================================
+
+        # 轻度压力 (WRS影响力 30-59)
+        ANO_wrs_pressure_low = {
+            allowed = { always = no }
+            removal_cost = -1
+            picture = generic_intel_bonus
+
+            modifier = {
+                political_power_factor = -0.05
+                stability_factor = -0.03
+            }
+        }
+
+        # 中度压力 (WRS影响力 60-89)
+        ANO_wrs_pressure_medium = {
+            allowed = { always = no }
+            removal_cost = -1
+            picture = generic_intel_bonus
+
+            modifier = {
+                political_power_factor = -0.10
+                stability_factor = -0.07
+                industrial_capacity_factory = -0.05
+                research_speed_factor = -0.05
+            }
+        }
+
+        # 重度压力 (WRS影响力 90+)
+        ANO_wrs_pressure_high = {
+            allowed = { always = no }
+            removal_cost = -1
+            picture = generic_intel_bonus
+
+            modifier = {
+                political_power_factor = -0.20
+                stability_factor = -0.10
+                industrial_capacity_factory = -0.10
+                research_speed_factor = -0.10
+                army_attack_factor = -0.05
+                army_defence_factor = -0.05
+                army_org_regain = -0.10
+            }
+        }
+
+        # ========================================
+        #  SAM 渗透 Debuff
+        # ========================================
+
+        SAM_infiltrated_by_ANO = {
+            allowed = { always = no }
+            removal_cost = -1
+            picture = generic_intel_bonus
+
+            modifier = {
+                stability_factor = -0.10
+                industrial_capacity_factory = -0.10
+                political_power_factor = -0.10
+                research_speed_factor = -0.05
+                army_defence_factor = -0.10
+            }
+        }
+    }
+}
+

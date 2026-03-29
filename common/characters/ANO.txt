@@ -1,0 +1,387 @@
+characters = {
+
+	# =============================================
+	#  国家领袖: 高松灯 (Tomorin)
+	# =============================================
+
+	ANO_Tomorin = {
+		name = "高松灯"
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ANO/ANO_Tomorin_leader.png"
+			}
+			army = {
+				large = "gfx/leaders/ANO/generals/tomorin_general.png"
+				small = "gfx/leaders/ANO/generals/tomorin_general.png"
+			}
+		}
+
+		country_leader = {
+			desc = "POLITICS_tomorin_DESC"
+			expire = "1994.4.20"
+			ideology = liberal_conservatism_big_tent_subtype
+			traits = {
+				Tomorin_traits
+			}
+			id = -1
+		}
+	}
+
+	# =============================================
+	#  国家领袖: 千早爱音 (Chihaya Anon)
+	# =============================================
+
+	ANO_chihaya_anon = {
+		name = "千早爱音"
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ANO/ANON.png"
+			}
+			army = {
+				large = "gfx/leaders/ANO/generals/anon_general.png"
+				small = "gfx/leaders/ANO/generals/anon_general.png"
+			}
+		}
+
+		country_leader = {
+			ideology = progressivism_subtype
+			expire = "1999.1.1"
+			id = -1
+			traits = { }
+		}
+	}
+
+	# =============================================
+	#  副领袖: 沃兹涅先斯基
+	# =============================================
+
+	KOM_Nikolai_Voznesensky_1 = {
+		name = KOM_Nikolai_Voznesensky_1
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KOM/Portrait_Komi_Nikolai_Voznesensky.png"
+			}
+		}
+		country_leader = {
+			desc = "POLITICS_NIKOLAI_VOZNESENSKY_DESC"
+			expire = "1999.1.1"
+			ideology = progressivism_social_ano_subtype
+			traits = { controversial_populist }
+			id = -1
+		}
+	}
+
+	# =============================================
+	#  国家领袖 + 元帅: 椎名立希 (Rikki)
+	# =============================================
+
+	ANO_rikki = {
+		name = "椎名立希"
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ANO/ANO_TAKI_LEADER.png"
+				small = "gfx/leaders/Ministers/Minister_rikki.png"
+			}
+			army = {
+				large = "gfx/leaders/ANO/generals/rikki_general2.png"
+				small = "gfx/leaders/ANO/generals/rikki_general2.png"
+			}
+		}
+
+		country_leader = {
+			desc = "POLITICS_TAKI_DESC"
+			ideology = communist_stratocratic_communism_subtype
+			expire = "1999.1.1"
+			id = -1
+			traits = {
+				head_of_government
+			}
+		}
+
+		field_marshal = {
+			skill = 5
+			attack_skill = 8
+			defense_skill = 8
+			planning_skill = 8
+			logistics_skill = 8
+			legacy_id = -1
+		}
+
+		advisor = {
+			slot = security_minister
+			idea_token = idea_ANO_rikki
+			allowed = { original_tag = ANO }
+			traits = {
+				Taki_Traits
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	# =============================================
+	#  国家领袖 + 军团指挥官: 要乐奈 (Rana)
+	# =============================================
+
+	ANO_Rana = {
+		name = "要乐奈"
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ANO/generals/rana_general.png"
+			}
+			army = {
+				large = "gfx/leaders/ANO/generals/rana_general.png"
+				small = "gfx/leaders/ANO/generals/rana_general.png"
+			}
+		}
+
+		country_leader = {
+			ideology = socialist_subtype
+			expire = "1999.1.1"
+			id = -1
+			traits = { }
+		}
+
+		corps_commander = {
+			skill = 5
+			attack_skill = 8
+			defense_skill = 8
+			planning_skill = 8
+			logistics_skill = 8
+			legacy_id = -1
+		}
+	}
+
+	# =============================================
+	#  国家领袖 + 军团指挥官 + 政府首脑: 长崎素世 (Soyo)
+	# =============================================
+
+	ANO_Soyo = {
+		name = "长崎素世"
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ANO/ANO_Soyo_leader.png"
+				small = "gfx/leaders/Ministers/Minister_Soyo.png"
+			}
+			army = {
+				large = "gfx/leaders/ANO/generals/Soyo_general.png"
+				small = "gfx/leaders/ANO/generals/Soyo_general.png"
+			}
+		}
+
+		country_leader = {
+			ideology = conservatism_paternalistic_conservatism_subtype
+			expire = "1999.1.1"
+			id = -1
+			traits = {
+				Soyo_traits
+			}
+		}
+
+		corps_commander = {
+			skill = 2
+			attack_skill = 8
+			defense_skill = 8
+			planning_skill = 8
+			logistics_skill = 8
+			legacy_id = -1
+		}
+
+		advisor = {
+			slot = head_of_government
+			idea_token = idea_ANO_Soyo
+			allowed = { original_tag = ANO }
+			traits = {
+				Soyo_traits
+			}
+			ledger = civilian
+			cost = -1
+			can_be_fired = no
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	# =============================================
+	#  将领 — 军团指挥官 (通用)
+	# =============================================
+
+	# 维克托·彼得罗夫 — 老练的步兵指挥官
+	ANO_viktor_petrov = {
+		name = "ANO_viktor_petrov"
+
+		portraits = {
+			army = {
+				large = "gfx/leaders/Generic/Portrait_Europe_Generic_land_2.png"
+				small = "gfx/leaders/Generic/Portrait_Europe_Generic_land_2_small.png"
+			}
+		}
+
+		corps_commander = {
+			traits = { infantry_officer trait_cautious winter_specialist }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = -1
+		}
+	}
+
+	# 叶莲娜·索罗金娜 — 进步主义女性军官，擅长后勤
+	ANO_elena_sorokina = {
+		name = "ANO_elena_sorokina"
+
+		portraits = {
+			army = {
+				large = "gfx/leaders/Generic/Portrait_Europe_Generic_land_3.png"
+				small = "gfx/leaders/Generic/Portrait_Europe_Generic_land_3_small.png"
+			}
+		}
+
+		corps_commander = {
+			traits = { career_officer trait_engineer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = -1
+		}
+	}
+
+	# 德米特里·沃尔科夫 — 年轻激进的装甲指挥官
+	ANO_dmitri_volkov = {
+		name = "ANO_dmitri_volkov"
+
+		portraits = {
+			army = {
+				large = "gfx/leaders/Generic/Portrait_Europe_Generic_land_4.png"
+				small = "gfx/leaders/Generic/Portrait_Europe_Generic_land_4_small.png"
+			}
+		}
+
+		corps_commander = {
+			traits = { trait_reckless panzer_leader }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = -1
+		}
+	}
+
+	# 伊万·科罗廖夫 — 防御专家，国土防卫指挥官
+	ANO_ivan_korolev = {
+		name = "ANO_ivan_korolev"
+
+		portraits = {
+			army = {
+				large = "gfx/leaders/Generic/Portrait_Europe_Generic_land_1.png"
+				small = "gfx/leaders/Generic/Portrait_Europe_Generic_land_1_small.png"
+			}
+		}
+
+		corps_commander = {
+			traits = { old_guard inflexible_strategist fortress_buster }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 1
+			legacy_id = -1
+		}
+
+		advisor = {
+			slot = high_command
+			idea_token = ANO_ivan_korolev
+			ledger = army
+			allowed = {
+				original_tag = ANO
+			}
+			traits = {
+				army_entrenchment_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	# =============================================
+	#  顾问
+	# =============================================
+
+	# =============================================
+	#  彩蛋将领: 丰川祥子 (Toyokawa Sakiko)
+	#  "我将成为神明。"
+	# =============================================
+
+	ANO_sakiko = {
+		name = "丰川祥子"
+
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ANO/Red_Navy_Taki.png"
+			}
+			army = {
+				large = "gfx/leaders/ANO/SS_tAKI_.png"
+				small = "gfx/leaders/ANO/SS_tAKI_.png"
+			}
+		}
+
+		field_marshal = {
+			traits = { brilliant_strategist offensive_doctrine logistics_wizard winter_specialist }
+			skill = 9
+			attack_skill = 9
+			defense_skill = 9
+			planning_skill = 9
+			logistics_skill = 9
+			legacy_id = -1
+		}
+
+		advisor = {
+			slot = theorist
+			idea_token = idea_ANO_sakiko
+			ledger = army
+			allowed = { original_tag = ANO }
+			traits = { Sakiko_theorist_trait }
+			cost = 0
+		}
+	}
+
+	# 军事理论家
+	ANO_alexei_morozov = {
+		name = "ANO_alexei_morozov"
+
+		portraits = {
+			army = {
+				small = "gfx/leaders/Generic/Portrait_Europe_Generic_land_5_small.png"
+			}
+		}
+
+		advisor = {
+			slot = theorist
+			idea_token = ANO_alexei_morozov
+			ledger = army
+			allowed = {
+				original_tag = ANO
+			}
+			traits = {
+				military_theorist
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+}

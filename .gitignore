@@ -1,0 +1,5 @@
+new/
+*.zip
+*.tmp
+.claude/
+project_knowledge_base.md

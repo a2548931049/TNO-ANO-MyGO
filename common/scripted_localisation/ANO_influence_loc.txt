@@ -1,0 +1,73 @@
+defined_text = {
+    name = ANO_GetInfluenceDisplay
+    text = {
+        trigger = {
+            tag = ANO
+        }
+        localization_key = ANO_influence_dual_display
+    }
+    text = {
+        localization_key = ANO_influence_display_hidden
+    }
+}
+
+defined_text = {
+    name = ANO_GetWRSPressure
+    text = {
+        trigger = {
+            tag = ANO
+            check_variable = { WRS_influence > 89 }
+        }
+        localization_key = ANO_wrs_pressure_critical
+    }
+    text = {
+        trigger = {
+            tag = ANO
+            check_variable = { WRS_influence > 59 }
+        }
+        localization_key = ANO_wrs_pressure_high_text
+    }
+    text = {
+        trigger = {
+            tag = ANO
+            check_variable = { WRS_influence > 29 }
+        }
+        localization_key = ANO_wrs_pressure_moderate
+    }
+    text = {
+        trigger = {
+            tag = ANO
+        }
+        localization_key = ANO_wrs_pressure_safe
+    }
+    text = {
+        localization_key = ANO_influence_display_hidden
+    }
+}
+
+defined_text = {
+    name = ANO_GetInfluenceHint
+    text = {
+        trigger = {
+            tag = ANO
+            check_variable = { WRS_influence > 59 }
+        }
+        localization_key = ANO_hint_wrs_dangerous
+    }
+    text = {
+        trigger = {
+            tag = ANO
+            check_variable = { ANO_influence > 14 }
+        }
+        localization_key = ANO_hint_can_spend
+    }
+    text = {
+        trigger = {
+            tag = ANO
+        }
+        localization_key = ANO_hint_need_more
+    }
+    text = {
+        localization_key = ANO_influence_display_hidden
+    }
+}

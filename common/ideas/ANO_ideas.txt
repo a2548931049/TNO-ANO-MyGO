@@ -1,0 +1,63 @@
+ideas = {
+    country = {
+        
+        # --- 难民危机 ---
+        ANO_refugee_crisis = {
+            allowed = { always = no }
+            removal_cost = -1
+            picture = GFX_portrait_ANO_icon
+
+            modifier = {
+                # +300 每周人力
+                weekly_manpower = 300
+                
+                # +5% 适役人口 (修正值)
+                recruitable_population_factor = 0.05
+                
+                # -10% 稳定度
+                stability_factor = -0.10
+                
+                # -25% 战争支持度
+                war_support_factor = -0.25
+                
+                # -20% 建造速度
+                production_speed_buildings_factor = -0.20
+                
+                # -20% 工厂产出
+                industrial_capacity_factory = -0.20
+            }
+        }
+
+        # --- 缓冲中立区 ---
+        ANO_neutral_zone = {
+            allowed = { always = no }
+            removal_cost = -1
+
+            modifier = {
+                # 占位idea，被国策 remove_ideas 清除后解锁后续效果
+            }
+        }
+
+        # --- 双头政权 ---
+        ANO_double_headed_regime = {
+            allowed = { always = no }
+            removal_cost = -1
+
+            modifier = {
+                # -10% 稳定度
+                stability_factor = -0.10
+                
+                # -5% 工业生产效率 (指生产效率上限，即红条的上限)
+                # 注意：之前的 production_efficiency_factor 是错误的写法
+                production_factory_max_efficiency_factor = -0.05
+                
+                # -15% 政治点数获取
+                # 注意：之前的 political_power_gain_factor 是错误的写法
+                political_power_factor = -0.15
+                
+                # -20% 科研速度
+                research_speed_factor = -0.20
+            }
+        }
+    }
+}

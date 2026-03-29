@@ -1,0 +1,9 @@
+on_actions = {
+    on_startup = {
+        effect = {
+            ANO = {
+                country_event = { id = ANO_influence.1 days = 14 }
+            }
+        }
+    }
+}
