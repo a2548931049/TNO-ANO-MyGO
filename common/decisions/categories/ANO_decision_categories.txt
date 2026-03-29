@@ -13,3 +13,19 @@ ANO_influence_category = {
 
     scripted_gui = ANO_influence_sg
 }
+
+ANO_easter_egg_category = {
+    icon = generic_secret_weapon
+
+    allowed = {
+        tag = ANO
+    }
+    visible = {
+        tag = ANO
+        has_completed_focus = ANO_back_on_track
+        NOT = { has_country_flag = ANO_sakiko_recruited }
+    }
+
+    visible_when_empty = no
+    priority = 100
+}

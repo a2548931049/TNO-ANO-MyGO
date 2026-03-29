@@ -330,11 +330,11 @@ characters = {
 
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/ANO/Red_Navy_Taki.png"
+				large = "gfx/leaders/ANO/ANO_sakiko_leader.png"
 			}
 			army = {
-				large = "gfx/leaders/ANO/SS_tAKI_.png"
-				small = "gfx/leaders/ANO/SS_tAKI_.png"
+				large = "gfx/leaders/ANO/generals/sakiko_general.png"
+				small = "gfx/leaders/ANO/generals/sakiko_general.png"
 			}
 		}
 

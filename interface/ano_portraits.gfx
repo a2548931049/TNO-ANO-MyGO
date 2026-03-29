@@ -101,11 +101,11 @@ spriteTypes = {
     # ========== 彩蛋: 丰川祥子 ==========
     spriteType = {
         name = "GFX_portrait_ANO_sakiko"
-        texturefile = "gfx/leaders/ANO/Red_Navy_Taki.png"
+        texturefile = "gfx/leaders/ANO/ANO_sakiko_leader.png"
     }
     spriteType = {
         name = "GFX_portrait_ANO_sakiko_army"
-        texturefile = "gfx/leaders/ANO/SS_tAKI_.png"
+        texturefile = "gfx/leaders/ANO/generals/sakiko_general.png"
     }
 
     # ========== Ideas 图标 ==========
