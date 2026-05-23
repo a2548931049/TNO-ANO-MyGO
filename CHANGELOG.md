@@ -6,6 +6,41 @@
 
 ---
 
+## [0.3.0] - 2026-05-24
+
+### 新增
+- **内忧外患 GUI 重做**
+  - 新增 `interface/ANO_influence.gfx` 与 `gfx/interface/ano_internal_external/` 素材组
+  - 参考 TNO 风格重做沃洛格达“内忧外患”面板，展示城市图、装饰框、残党/中央图标、力量文本与倒计时状态
+  - 新增高松灯开局领袖 DDS 头像：`gfx/leaders/ANO/ANO_Tomorin_leader.dds`
+- **内忧外患双压力系统**
+  - 新增 `ANO_remnant_power` 与 `ANO_central_power`，开局均为 200，上限 1000
+  - 残党力量达到 1000 后触发 14 天政变倒计时；结束后进入立希线占位结局
+  - 中央力量达到 1000 后触发 14 天接管倒计时；结束后西俄革尝试接管沃洛格达并继续原版流程
+- **OOB 文件补齐**
+  - 新增 `VOL_BorderGuard`、`VOL_Mygo`、`GOR_1962`，修复国策引用缺失 OOB 的风险
+
+### 变更
+- 将旧“影响力系统”文案与逻辑整合为“内忧外患”系统
+- `ANO_influence_category` 保留 scripted GUI 面板，同时恢复完整决议列表
+- 13 个相关决议改为操作残党/中央两条压力
+- 高松灯的 civilian portrait 与 `GFX_portrait_ANO_tomorin` 改用新 DDS 头像
+- `ANO_another_year_in_despair` 不再将千早爱音 promote 为国家领袖
+
+### 修复
+- 修复开局仍显示千早爱音的问题：将 ANO 开局执政党与支持度改为 `liberal_conservatism`，匹配高松灯的 `liberal_conservatism_big_tent_subtype`
+- 修复力量文本不显示的问题：补齐动态文本、开局变量和相关本地化
+- 修复 GUI 装饰框左右顺序与参考图相反的问题
+- 修复 GUI 重做后旧决议系统未融合、行动列表看似消失的问题
+- 修复部分 TNO 风格字体不匹配的问题
+
+### 文档
+- 新增 `docs/HOI4_MODDING_GUIDE.md` 与 `docs/HOI4_VANILLA_MODDING_GUIDE.md`
+- 更新 `docs/CONTENT_GUIDE.md`，记录内忧外患系统、OOB 状态与高松灯开局领袖设定
+- 在制作经验指南中补充本次问题记录与解决方案
+
+---
+
 ## [0.2.0] - 2026-03-29
 
 ### 新增

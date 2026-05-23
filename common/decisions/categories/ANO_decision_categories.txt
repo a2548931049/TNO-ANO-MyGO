@@ -8,7 +8,7 @@ ANO_influence_category = {
         tag = ANO
     }
 
-    visible_when_empty = no
+    visible_when_empty = yes
     priority = 50
 
     scripted_gui = ANO_influence_sg

@@ -23,7 +23,7 @@
 
 ## 内容概览
 
-详见 [docs/CONTENT_GUIDE.md](docs/CONTENT_GUIDE.md) 了解完整的已实现内容清单。
+详见 [docs/CONTENT_GUIDE.md](docs/CONTENT_GUIDE.md) 了解完整的已实现内容清单。开发与排错经验见 [docs/HOI4_MODDING_GUIDE.md](docs/HOI4_MODDING_GUIDE.md)。
 
 ### 国策树
 
@@ -64,7 +64,7 @@
 
 ### 特色系统
 
-- **影响力系统** — 通过政治投资和军事行动积累影响力
+- **内忧外患系统** — 以 GUI + 决议追踪伊万诺夫残党与西俄革中央压力
 - **循环决议机** — 可重复完成的国策，持续获取资源
 - **自定义加载界面** — 角色语录和古典诗词
 - **完整简体中文本地化** — 包含叙事性的国家描述和事件文本
@@ -78,12 +78,12 @@ test2/
 │   ├── countries/          # 国家颜色
 │   ├── country_leader/     # 领袖特质
 │   ├── country_tags/       # ANO 国家标签
-│   ├── decisions/          # 决议（影响力 + 彩蛋）
+│   ├── decisions/          # 决议（内忧外患 + 彩蛋）
 │   ├── ideas/              # 民族精神
 │   ├── ideologies/         # 意识形态子类型
 │   ├── national_focus/     # 国策树（35个国策）
 │   ├── on_actions/         # 触发动作
-│   ├── scripted_guis/      # 影响力GUI
+│   ├── scripted_guis/      # 内忧外患 GUI
 │   └── scripted_localisation/
 ├── events/                 # 事件脚本
 ├── gfx/

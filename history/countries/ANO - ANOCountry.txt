@@ -13,9 +13,12 @@ set_country_flag = tno_defined_startup_effectiveness
 set_country_flag = is_west_russian_warlord
 set_country_flag = ANO_influence_system_active
 
-# --- 影响力系统初始化 ---
+# --- 内忧外患系统初始化 ---
 set_variable = { ANO_influence = 0 }
 set_variable = { WRS_influence = 10 }
+set_variable = { ANO_remnant_power = 200 }
+set_variable = { ANO_central_power = 200 }
+set_country_flag = ANO_internal_external_initialized
 
 # --- 军队 OOB 设置 ---
 set_oob = "ANO_1962"
@@ -26,11 +29,11 @@ set_research_slots = 3
 # --- 政治设置 ---
 
 set_popularities = {
-	progressivism = 100
+	liberal_conservatism = 100
 }
 
 set_politics = {
-	ruling_party = progressivism
+	ruling_party = liberal_conservatism
 	last_election = "1959.3.5"
 	election_frequency = 48
 	elections_allowed = yes

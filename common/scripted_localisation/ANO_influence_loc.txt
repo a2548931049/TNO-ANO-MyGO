@@ -46,6 +46,128 @@ defined_text = {
 }
 
 defined_text = {
+    name = ANO_GetGreatGameHeaderStatus
+    text = {
+        trigger = {
+            tag = ANO
+            check_variable = { WRS_influence > 89 }
+        }
+        localization_key = ANO_influence_header_critical
+    }
+    text = {
+        trigger = {
+            tag = ANO
+            check_variable = { ANO_influence > 54 }
+        }
+        localization_key = ANO_influence_header_advantage
+    }
+    text = {
+        trigger = {
+            tag = ANO
+        }
+        localization_key = ANO_influence_header_contested
+    }
+    text = {
+        localization_key = ANO_influence_display_hidden
+    }
+}
+
+defined_text = {
+    name = ANO_GetGreatGameScore
+    text = {
+        trigger = {
+            tag = ANO
+        }
+        localization_key = ANO_great_game_score_line
+    }
+    text = {
+        localization_key = ANO_influence_display_hidden
+    }
+}
+
+defined_text = {
+    name = ANO_GetGreatGameStatus
+    text = {
+        trigger = {
+            tag = ANO
+            check_variable = { WRS_influence > 89 }
+        }
+        localization_key = ANO_great_game_status_critical
+    }
+    text = {
+        trigger = {
+            tag = ANO
+            check_variable = { WRS_influence > 59 }
+        }
+        localization_key = ANO_great_game_status_wrs_pressure
+    }
+    text = {
+        trigger = {
+            tag = ANO
+            check_variable = { ANO_influence > 54 }
+        }
+        localization_key = ANO_great_game_status_ano_advantage
+    }
+    text = {
+        trigger = {
+            tag = ANO
+        }
+        localization_key = ANO_great_game_status_contested
+    }
+    text = {
+        localization_key = ANO_influence_display_hidden
+    }
+}
+
+defined_text = {
+    name = ANO_GetCurrentOperation
+    text = {
+        trigger = {
+            tag = ANO
+            has_country_flag = ANO_support_operation_underway
+        }
+        localization_key = ANO_current_operation_support
+    }
+    text = {
+        trigger = {
+            tag = ANO
+            has_country_flag = ANO_security_operation_underway
+        }
+        localization_key = ANO_current_operation_security
+    }
+    text = {
+        trigger = {
+            tag = ANO
+            has_country_flag = ANO_infiltrating_samara
+        }
+        localization_key = ANO_current_operation_samara
+    }
+    text = {
+        trigger = {
+            tag = ANO
+            check_variable = { WRS_influence > 59 }
+        }
+        localization_key = ANO_current_operation_wrs_pressure
+    }
+    text = {
+        trigger = {
+            tag = ANO
+            check_variable = { ANO_influence > 14 }
+        }
+        localization_key = ANO_current_operation_ready
+    }
+    text = {
+        trigger = {
+            tag = ANO
+        }
+        localization_key = ANO_current_operation_waiting
+    }
+    text = {
+        localization_key = ANO_influence_display_hidden
+    }
+}
+
+defined_text = {
     name = ANO_GetInfluenceHint
     text = {
         trigger = {
@@ -66,6 +188,67 @@ defined_text = {
             tag = ANO
         }
         localization_key = ANO_hint_need_more
+    }
+    text = {
+        localization_key = ANO_influence_display_hidden
+    }
+}
+
+defined_text = {
+    name = ANO_GetRemnantPowerText
+    text = {
+        trigger = {
+            tag = ANO
+            has_country_flag = ANO_remnant_coup_countdown
+        }
+        localization_key = ANO_remnant_power_countdown_text
+    }
+    text = {
+        trigger = { tag = ANO }
+        localization_key = ANO_remnant_power_text
+    }
+    text = {
+        localization_key = ANO_influence_display_hidden
+    }
+}
+
+defined_text = {
+    name = ANO_GetCentralPowerText
+    text = {
+        trigger = {
+            tag = ANO
+            has_country_flag = ANO_central_takeover_countdown
+        }
+        localization_key = ANO_central_power_countdown_text
+    }
+    text = {
+        trigger = { tag = ANO }
+        localization_key = ANO_central_power_text
+    }
+    text = {
+        localization_key = ANO_influence_display_hidden
+    }
+}
+
+defined_text = {
+    name = ANO_GetInternalExternalCountdown
+    text = {
+        trigger = {
+            tag = ANO
+            has_country_flag = ANO_remnant_coup_countdown
+        }
+        localization_key = ANO_remnant_countdown_status
+    }
+    text = {
+        trigger = {
+            tag = ANO
+            has_country_flag = ANO_central_takeover_countdown
+        }
+        localization_key = ANO_central_countdown_status
+    }
+    text = {
+        trigger = { tag = ANO }
+        localization_key = ANO_internal_external_safe_status
     }
     text = {
         localization_key = ANO_influence_display_hidden

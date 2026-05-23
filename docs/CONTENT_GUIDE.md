@@ -1,6 +1,6 @@
 # 内容实现清单
 
-> 最后更新：2026-03-29 v0.2.0
+> 最后更新：2026-05-24 v0.3.0
 
 本文件详细列出模组中**已实现**和**待实现**的所有内容，供协作者查阅。
 
@@ -13,7 +13,7 @@
 | 角色 ID | 名称 | 可用身份 | 肖像 | 备注 |
 |---------|------|---------|------|------|
 | `ANO_Tomorin` | 高松灯 | 国家领袖 · 军级指挥官 | leader + general | 初始领袖，完成第一个国策后获得指挥官身份 |
-| `ANO_chihaya_anon` | 千早爱音 | 国家领袖 · 军级指挥官 | leader + general | 「绝望中又一年」国策后 promote 为领袖 |
+| `ANO_chihaya_anon` | 千早爱音 | 国家领袖 · 军级指挥官 | leader + general | 保留为可用角色与指挥官，不作为开局领袖 |
 | `ANO_rikki` | 椎名立希 | 国家领袖 · 元帅 · 安全部长 | leader + marshal + minister | 技能 5/8/8/8/8，自带 `head_of_government` 特质 |
 | `ANO_Soyo` | 长崎素世 | 国家领袖 · 军级指挥官 · 政府首脑 | leader + general + minister | 顾问特质 `Soyo_traits` |
 | `ANO_Rana` | 要乐奈 | 军级指挥官 | general | 自带 `commando` 特质，logistics 6 |
@@ -50,7 +50,7 @@
 | 国策 ID | 名称 | 耗时 | 关键效果 |
 |---------|------|------|---------|
 | `ANO_stand_in_the_cold` | 于寒风中而立 | 0.3 | 设 WRS 外观、+100PP、任命全部军事角色、社发改良×5 |
-| `ANO_another_year_in_despair` | 绝望中又一年 | 4.3 | +100PP、设 ANO 外观、promote 千早爱音为领袖 |
+| `ANO_another_year_in_despair` | 绝望中又一年 | 4.3 | +100PP、设 ANO 外观、维持高松灯为领袖 |
 | `ANO_remember_the_west_russian_war` | 忆西俄战争 | 3.6 | 与 WRS 互不侵犯、VOL 自治领、+50 陆军经验 |
 | `ANO_counter_luftwaffe_bombing` | 反制空袭 | 3.6 | +2防空、+100 CAS、+25指挥力 |
 | `ANO_remnants_watching` | 残兵犹在窥视 | 1 | 步兵全面削弱（过渡性debuff） |
@@ -105,6 +105,23 @@
 
 ---
 
+### 2.6 内忧外患系统
+
+| 组件 | 文件 | 内容 |
+|------|------|------|
+| GUI 面板 | `interface/ANO_influence.gui` / `interface/ANO_influence.gfx` | 参考 TNO 风格重做“内忧外患”面板，展示沃洛格达局势、残党力量、中央力量与倒计时 |
+| 决议分类 | `common/decisions/categories/ANO_decision_categories.txt` | `ANO_influence_category` 挂载 scripted GUI，并保持决议列表可见 |
+| 决议行动 | `common/decisions/ANO_influence_decisions.txt` | 13 个行动，用 PP、稳定、战争支持、人力和外交成本调节两条压力 |
+| 周期事件 | `events/ANO_influence_events.txt` | 每 14 天推进压力；到达 1000 后启动 14 天倒计时 |
+| 开局变量 | `history/countries/ANO - ANOCountry.txt` | `ANO_remnant_power = 200`，`ANO_central_power = 200` |
+
+结局逻辑：
+
+- 伊万诺夫残党力量达到 1000：触发 14 天政变倒计时；结束后灯遇刺，进入尚未开发的立希线占位。
+- 西俄革中央力量达到 1000：触发 14 天接管倒计时；结束后西俄革接管沃洛格达，尝试回到原版流程。
+
+---
+
 ## 三、民族精神
 
 | ID | 名称 | 效果 |
@@ -147,9 +164,10 @@
 
 ### 5.2 肖像
 
-- 领袖肖像 5 组（高松灯 / 千早爱音 / 椎名立希 / 长崎素世 / 丰川祥子）
+- 领袖肖像 5 组（高松灯 / 千早爱音 / 椎名立希 / 长崎素世 / 丰川祥子），高松灯开局领袖头像使用 `ANO_Tomorin_leader.dds`
 - 将领肖像 7 张（含各角色 general 变体）
 - 顾问肖像 2 张（椎名立希 / 长崎素世 minister 变体）
+- 内忧外患 GUI 素材：`gfx/interface/ano_internal_external/`
 
 ---
 
@@ -169,14 +187,13 @@
 
 ### 待修复
 - [ ] 部分国策图标为 `.png` 格式（`Clear_them`、`Boost_People_Confidences`、`Rebuild_Our_Needs_tomorin`、`Soviet_arms`），可能显示白框，需转为 `.dds`
-- [ ] `VOL_BorderGuard`、`VOL_Mygo` OOB 文件缺失，相关国策加载会报错
+- [x] `VOL_BorderGuard`、`VOL_Mygo`、`GOR_1962` OOB 文件已补齐，相关国策不再引用缺失 OOB
 - [ ] `The_Struggle` 前置国策是否由 TNO 本体提供需确认
 - [ ] 自定义将领特质 `War_Hero`、`Media_Personality`、`Logistics_Wizard`、`commando` 需确认 TNO 是否已定义
-- [ ] `GOR_1962` OOB 被两个国策引用，需确认是否存在
+- [ ] 内忧外患系统的接管/政变结局需要进游戏实测，尤其是 `change_tag_from` 与吞并效果在 TNO 环境下的表现
 
 ### 待实现
 - [ ] 更多事件链（领袖更替剧情、战后重建等）
 - [ ] Ave Mujica 路线？（丰川祥子相关扩展内容）
-- [ ] 自定义 GUI 面板（军区状态仪表盘）
 - [ ] 音乐模组（MyGO!!!!! BGM 替换）
 - [ ] Steam 创意工坊发布准备

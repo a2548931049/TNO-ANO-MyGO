@@ -1,23 +1,21 @@
 ####################################
-###  ANO Influence Decisions     ###
+###  ANO Internal / External     ###
 ####################################
 
 ANO_influence_category = {
 
     ########################################
-    ###  Gain ANO Influence (Sacrifice)  ###
+    ###  Stabilize the Regime            ###
     ########################################
 
-    # 政治投资：花费100 PP → 30天后 +10影响力
+    # 政治投资：花费100 PP → 30天后两边压力 -75
     ANO_influence_political_investment = {
         icon = generic_political_discourse
 
         available = {
             has_political_power > 99
         }
-        visible = {
-            tag = ANO
-        }
+        visible = { tag = ANO }
 
         fire_only_once = no
         days_remove = 30
@@ -27,29 +25,24 @@ ANO_influence_category = {
         }
 
         remove_effect = {
-            add_to_variable = { ANO_influence = 10 }
-            custom_effect_tooltip = ANO_influence_gain_10_tt
+            subtract_from_variable = { ANO_remnant_power = 75 }
+            subtract_from_variable = { ANO_central_power = 75 }
+            clamp_variable = { var = ANO_remnant_power min = 0 max = 1000 }
+            clamp_variable = { var = ANO_central_power min = 0 max = 1000 }
+            custom_effect_tooltip = ANO_pressure_both_lose_75_tt
         }
 
-        ai_will_do = {
-            factor = 1
-            modifier = {
-                factor = 0
-                check_variable = { ANO_influence > 50 }
-            }
-        }
+        ai_will_do = { factor = 1 }
     }
 
-    # 民心动员：-5%稳定度 → 30天后 +10影响力
+    # 民心动员：-5%稳定度 → 30天后残党压力 -100，中央压力 +25
     ANO_influence_public_mobilization = {
         icon = generic_civil_support
 
         available = {
             has_stability > 0.15
         }
-        visible = {
-            tag = ANO
-        }
+        visible = { tag = ANO }
 
         fire_only_once = no
         days_remove = 30
@@ -59,29 +52,24 @@ ANO_influence_category = {
         }
 
         remove_effect = {
-            add_to_variable = { ANO_influence = 10 }
-            custom_effect_tooltip = ANO_influence_gain_10_tt
+            subtract_from_variable = { ANO_remnant_power = 100 }
+            add_to_variable = { ANO_central_power = 25 }
+            clamp_variable = { var = ANO_remnant_power min = 0 max = 1000 }
+            clamp_variable = { var = ANO_central_power min = 0 max = 1000 }
+            custom_effect_tooltip = ANO_remnant_lose_100_central_gain_25_tt
         }
 
-        ai_will_do = {
-            factor = 1
-            modifier = {
-                factor = 0
-                has_stability < 0.3
-            }
-        }
+        ai_will_do = { factor = 1 }
     }
 
-    # 战时宣传：-5%战争支持度 → 30天后 +10影响力
+    # 战时宣传：-5%战争支持度 → 30天后中央压力 -100，残党压力 +25
     ANO_influence_war_propaganda = {
         icon = generic_prepare_civil_war
 
         available = {
             has_war_support > 0.15
         }
-        visible = {
-            tag = ANO
-        }
+        visible = { tag = ANO }
 
         fire_only_once = no
         days_remove = 30
@@ -91,29 +79,24 @@ ANO_influence_category = {
         }
 
         remove_effect = {
-            add_to_variable = { ANO_influence = 10 }
-            custom_effect_tooltip = ANO_influence_gain_10_tt
+            subtract_from_variable = { ANO_central_power = 100 }
+            add_to_variable = { ANO_remnant_power = 25 }
+            clamp_variable = { var = ANO_remnant_power min = 0 max = 1000 }
+            clamp_variable = { var = ANO_central_power min = 0 max = 1000 }
+            custom_effect_tooltip = ANO_central_lose_100_remnant_gain_25_tt
         }
 
-        ai_will_do = {
-            factor = 1
-            modifier = {
-                factor = 0
-                has_war_support < 0.3
-            }
-        }
+        ai_will_do = { factor = 1 }
     }
 
-    # 人力征调：-5000人力 → 30天后 +10影响力
+    # 人力征调：-5000人力 → 30天后残党压力 -75
     ANO_influence_manpower_levy = {
         icon = generic_army_support
 
         available = {
             has_manpower > 5000
         }
-        visible = {
-            tag = ANO
-        }
+        visible = { tag = ANO }
 
         fire_only_once = no
         days_remove = 30
@@ -123,69 +106,27 @@ ANO_influence_category = {
         }
 
         remove_effect = {
-            add_to_variable = { ANO_influence = 10 }
-            custom_effect_tooltip = ANO_influence_gain_10_tt
+            subtract_from_variable = { ANO_remnant_power = 75 }
+            clamp_variable = { var = ANO_remnant_power min = 0 max = 1000 }
+            custom_effect_tooltip = ANO_remnant_lose_75_tt
         }
 
-        ai_will_do = {
-            factor = 1
-            modifier = {
-                factor = 0
-                has_manpower < 10000
-            }
-        }
+        ai_will_do = { factor = 1 }
     }
 
     ########################################
-    ###  Suppress WRS Influence          ###
+    ###  Suppress Remnants / Central     ###
     ########################################
 
-    # 政治施压：花费10 ANO影响力 → WRS影响力 -15
+    # 政治施压：50 PP → 中央压力 -75
     ANO_suppress_wrs_political = {
         icon = generic_political_actions
 
         available = {
-            check_variable = { ANO_influence > 9 }
-            check_variable = { WRS_influence > 0 }
-        }
-        visible = {
-            tag = ANO
-        }
-
-        fire_only_once = no
-        days_remove = 14
-
-        complete_effect = {
-            subtract_from_variable = { ANO_influence = 10 }
-            custom_effect_tooltip = ANO_influence_spend_10_tt
-        }
-
-        remove_effect = {
-            subtract_from_variable = { WRS_influence = 15 }
-            clamp_variable = { var = WRS_influence min = 0 max = 120 }
-            custom_effect_tooltip = ANO_wrs_influence_lose_15_tt
-        }
-
-        ai_will_do = {
-            factor = 5
-            modifier = {
-                factor = 0
-                check_variable = { WRS_influence < 30 }
-            }
-        }
-    }
-
-    # 舆论攻势：花费50PP → WRS影响力 -10
-    ANO_suppress_wrs_propaganda = {
-        icon = generic_political_discourse
-
-        available = {
             has_political_power > 49
-            check_variable = { WRS_influence > 0 }
+            check_variable = { ANO_central_power > 0 }
         }
-        visible = {
-            tag = ANO
-        }
+        visible = { tag = ANO }
 
         fire_only_once = no
         days_remove = 14
@@ -195,31 +136,49 @@ ANO_influence_category = {
         }
 
         remove_effect = {
-            subtract_from_variable = { WRS_influence = 10 }
-            clamp_variable = { var = WRS_influence min = 0 max = 120 }
-            custom_effect_tooltip = ANO_wrs_influence_lose_10_tt
+            subtract_from_variable = { ANO_central_power = 75 }
+            clamp_variable = { var = ANO_central_power min = 0 max = 1000 }
+            custom_effect_tooltip = ANO_central_lose_75_tt
         }
 
-        ai_will_do = {
-            factor = 3
-            modifier = {
-                factor = 0
-                check_variable = { WRS_influence < 30 }
-            }
-        }
+        ai_will_do = { factor = 3 }
     }
 
-    # 清洗亲革派：-5%稳定度 → WRS影响力 -20（激进手段）
+    # 舆论攻势：50 PP → 残党压力 -75
+    ANO_suppress_wrs_propaganda = {
+        icon = generic_political_discourse
+
+        available = {
+            has_political_power > 49
+            check_variable = { ANO_remnant_power > 0 }
+        }
+        visible = { tag = ANO }
+
+        fire_only_once = no
+        days_remove = 14
+
+        complete_effect = {
+            add_political_power = -50
+        }
+
+        remove_effect = {
+            subtract_from_variable = { ANO_remnant_power = 75 }
+            clamp_variable = { var = ANO_remnant_power min = 0 max = 1000 }
+            custom_effect_tooltip = ANO_remnant_lose_75_tt
+        }
+
+        ai_will_do = { factor = 3 }
+    }
+
+    # 清洗亲革派：-5%稳定度 + -500人力 → 中央压力 -150，残党压力 +50
     ANO_suppress_wrs_purge = {
         icon = generic_prepare_civil_war
 
         available = {
             has_stability > 0.20
-            check_variable = { WRS_influence > 14 }
+            check_variable = { ANO_central_power > 0 }
         }
-        visible = {
-            tag = ANO
-        }
+        visible = { tag = ANO }
 
         fire_only_once = no
         days_remove = 21
@@ -230,171 +189,152 @@ ANO_influence_category = {
         }
 
         remove_effect = {
-            subtract_from_variable = { WRS_influence = 20 }
-            clamp_variable = { var = WRS_influence min = 0 max = 120 }
-            custom_effect_tooltip = ANO_wrs_influence_lose_20_tt
+            subtract_from_variable = { ANO_central_power = 150 }
+            add_to_variable = { ANO_remnant_power = 50 }
+            clamp_variable = { var = ANO_remnant_power min = 0 max = 1000 }
+            clamp_variable = { var = ANO_central_power min = 0 max = 1000 }
+            custom_effect_tooltip = ANO_central_lose_150_remnant_gain_50_tt
         }
 
-        ai_will_do = {
-            factor = 8
-            modifier = {
-                factor = 0
-                check_variable = { WRS_influence < 60 }
-            }
-        }
+        ai_will_do = { factor = 5 }
     }
 
     ########################################
-    ###  Spend ANO Influence (Buffs)     ###
+    ###  Stabilizing Buffs               ###
     ########################################
 
-    # 争取外交承认：-15影响力 → 永久外交idea
+    # 争取外交承认：100 PP → 永久外交idea，两边压力 -50
     ANO_influence_diplomatic_recognition = {
         icon = generic_political_actions
 
         available = {
-            check_variable = { ANO_influence > 14 }
+            has_political_power > 99
             NOT = { has_idea = ANO_diplomatic_recognition }
         }
-        visible = {
-            tag = ANO
-        }
+        visible = { tag = ANO }
 
         fire_only_once = yes
 
         complete_effect = {
-            subtract_from_variable = { ANO_influence = 15 }
-            custom_effect_tooltip = ANO_influence_spend_15_tt
+            add_political_power = -100
             add_ideas = ANO_diplomatic_recognition
+            subtract_from_variable = { ANO_remnant_power = 50 }
+            subtract_from_variable = { ANO_central_power = 50 }
+            clamp_variable = { var = ANO_remnant_power min = 0 max = 1000 }
+            clamp_variable = { var = ANO_central_power min = 0 max = 1000 }
+            custom_effect_tooltip = ANO_pressure_both_lose_50_tt
         }
 
-        ai_will_do = {
-            factor = 10
-        }
+        ai_will_do = { factor = 5 }
     }
 
-    # 吸引投资：-10影响力 → 工厂产出+10%（180天）
+    # 吸引投资：50 PP → 工厂产出+10%（180天），中央压力 -50
     ANO_influence_attract_investment = {
         icon = generic_industry
 
         available = {
-            check_variable = { ANO_influence > 9 }
+            has_political_power > 49
             NOT = { has_idea = ANO_investment_boost }
         }
-        visible = {
-            tag = ANO
-        }
+        visible = { tag = ANO }
 
         fire_only_once = no
 
         complete_effect = {
-            subtract_from_variable = { ANO_influence = 10 }
-            custom_effect_tooltip = ANO_influence_spend_10_tt
+            add_political_power = -50
+            subtract_from_variable = { ANO_central_power = 50 }
+            clamp_variable = { var = ANO_central_power min = 0 max = 1000 }
+            custom_effect_tooltip = ANO_central_lose_50_tt
             add_timed_idea = {
                 idea = ANO_investment_boost
                 days = 180
             }
         }
 
-        ai_will_do = {
-            factor = 5
-        }
+        ai_will_do = { factor = 3 }
     }
 
-    # 军事顾问：-10影响力 → 攻防+10%（180天）
+    # 军事顾问：50 PP → 攻防+10%（180天），残党压力 -50
     ANO_influence_military_advisors = {
         icon = generic_army_support
 
         available = {
-            check_variable = { ANO_influence > 9 }
+            has_political_power > 49
             NOT = { has_idea = ANO_military_advisor_boost }
         }
-        visible = {
-            tag = ANO
-        }
+        visible = { tag = ANO }
 
         fire_only_once = no
 
         complete_effect = {
-            subtract_from_variable = { ANO_influence = 10 }
-            custom_effect_tooltip = ANO_influence_spend_10_tt
+            add_political_power = -50
+            subtract_from_variable = { ANO_remnant_power = 50 }
+            clamp_variable = { var = ANO_remnant_power min = 0 max = 1000 }
+            custom_effect_tooltip = ANO_remnant_lose_50_tt
             add_timed_idea = {
                 idea = ANO_military_advisor_boost
                 days = 180
             }
         }
 
-        ai_will_do = {
-            factor = 5
-        }
+        ai_will_do = { factor = 3 }
     }
 
-    # 科研合作：-10影响力 → 科研速度+10%（180天）
+    # 科研合作：50 PP → 科研速度+10%（180天）
     ANO_influence_research_cooperation = {
         icon = generic_research
 
         available = {
-            check_variable = { ANO_influence > 9 }
+            has_political_power > 49
             NOT = { has_idea = ANO_research_cooperation_boost }
         }
-        visible = {
-            tag = ANO
-        }
+        visible = { tag = ANO }
 
         fire_only_once = no
 
         complete_effect = {
-            subtract_from_variable = { ANO_influence = 10 }
-            custom_effect_tooltip = ANO_influence_spend_10_tt
+            add_political_power = -50
             add_timed_idea = {
                 idea = ANO_research_cooperation_boost
                 days = 180
             }
         }
 
-        ai_will_do = {
-            factor = 5
-        }
+        ai_will_do = { factor = 3 }
     }
 
-    # 贸易网络：-10影响力 → 建设速度+15%（180天）
+    # 贸易网络：50 PP → 建设速度+15%（180天）
     ANO_influence_trade_network = {
         icon = generic_trade
 
         available = {
-            check_variable = { ANO_influence > 9 }
+            has_political_power > 49
             NOT = { has_idea = ANO_trade_network_boost }
         }
-        visible = {
-            tag = ANO
-        }
+        visible = { tag = ANO }
 
         fire_only_once = no
 
         complete_effect = {
-            subtract_from_variable = { ANO_influence = 10 }
-            custom_effect_tooltip = ANO_influence_spend_10_tt
+            add_political_power = -50
             add_timed_idea = {
                 idea = ANO_trade_network_boost
                 days = 180
             }
         }
 
-        ai_will_do = {
-            factor = 5
-        }
+        ai_will_do = { factor = 3 }
     }
 
     ########################################
     ###  Covert Operations               ###
     ########################################
 
-    # 渗透萨马拉：花费10影响力 + 50PP，60天后触发成功/失败事件
+    # 渗透萨马拉：50 PP，60天后触发成功/失败事件
     ANO_infiltrate_samara = {
         icon = generic_prepare_civil_war
 
         available = {
-            check_variable = { ANO_influence > 9 }
             has_political_power > 49
             NOT = { has_country_flag = ANO_infiltrating_samara }
             SAM = { exists = yes }
@@ -408,9 +348,7 @@ ANO_influence_category = {
         days_remove = 60
 
         complete_effect = {
-            subtract_from_variable = { ANO_influence = 10 }
             add_political_power = -50
-            custom_effect_tooltip = ANO_influence_spend_10_tt
             set_country_flag = ANO_infiltrating_samara
             country_event = { id = ANO_influence.10 }
         }
@@ -427,8 +365,6 @@ ANO_influence_category = {
             }
         }
 
-        ai_will_do = {
-            factor = 3
-        }
+        ai_will_do = { factor = 1 }
     }
 }

@@ -1,0 +1,30 @@
+spriteTypes = {
+    spriteType = {
+        name = "GFX_ANO_ie_panel_bg"
+        texturefile = "gfx/interface/ano_internal_external/panel_bg.png"
+    }
+    spriteType = {
+        name = "GFX_ANO_ie_vol_bg"
+        texturefile = "gfx/interface/ano_internal_external/vol_bg.png"
+    }
+    spriteType = {
+        name = "GFX_ANO_ie_mygo_bg"
+        texturefile = "gfx/interface/ano_internal_external/mygo_bg.png"
+    }
+    spriteType = {
+        name = "GFX_ANO_ie_frame_left"
+        texturefile = "gfx/interface/ano_internal_external/frame.png"
+    }
+    spriteType = {
+        name = "GFX_ANO_ie_frame_right"
+        texturefile = "gfx/interface/ano_internal_external/frame_2.png"
+    }
+    spriteType = {
+        name = "GFX_ANO_ie_vol"
+        texturefile = "gfx/interface/ano_internal_external/vol.png"
+    }
+    spriteType = {
+        name = "GFX_ANO_ie_wrf"
+        texturefile = "gfx/interface/ano_internal_external/wrf.png"
+    }
+}

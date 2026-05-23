@@ -9,7 +9,7 @@ characters = {
 
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/ANO/ANO_Tomorin_leader.png"
+				large = "gfx/leaders/ANO/ANO_Tomorin_leader.dds"
 			}
 			army = {
 				large = "gfx/leaders/ANO/generals/tomorin_general.png"

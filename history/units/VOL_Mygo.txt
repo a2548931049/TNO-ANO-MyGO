@@ -1,0 +1,39 @@
+##################################################
+###  VOL_Mygo — MyGO!!!!! 志愿旅  (load_oob)  ###
+###  由国策 ANO_expand_army 触发               ###
+##################################################
+
+division_template = {
+	name = "MyGO Dobrovol'cheskaya Brigada"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		recon    = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+	}
+}
+
+units = {
+	# MyGO 志愿第1旅 — 驻守曼图罗沃（首都）
+	division = {
+		name = "1-ya MyGO Dobrovol'cheskaya Brigada"
+		location = 11075
+		division_template = "MyGO Dobrovol'cheskaya Brigada"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.8
+	}
+
+	# MyGO 志愿第2旅 — 驻守谢苗诺夫（南部前线）
+	division = {
+		name = "2-ya MyGO Dobrovol'cheskaya Brigada"
+		location = 9368
+		division_template = "MyGO Dobrovol'cheskaya Brigada"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
+}

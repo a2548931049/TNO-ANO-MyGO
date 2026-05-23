@@ -1,7 +1,7 @@
 add_namespace = ANO_influence
 
 ##############################################
-###  每14天 权力博弈 tick（自循环）         ###
+###  内忧外患：每14日压力增长              ###
 ##############################################
 
 country_event = {
@@ -15,52 +15,44 @@ country_event = {
     }
 
     immediate = {
-        # ANO 被动 +3 影响力
-        add_to_variable = { ANO_influence = 3 }
-
-        # WRS 被动 +5 影响力（西俄革势力更大，增长更快）
-        add_to_variable = { WRS_influence = 5 }
-
-        # WRS 影响力上限 120
-        clamp_variable = { var = WRS_influence min = 0 max = 120 }
-
-        # ===== 根据 WRS 影响力切换 debuff =====
-
-        # 清除旧debuff
-        if = {
-            limit = { has_idea = ANO_wrs_pressure_low }
-            remove_ideas = ANO_wrs_pressure_low
-        }
-        if = {
-            limit = { has_idea = ANO_wrs_pressure_medium }
-            remove_ideas = ANO_wrs_pressure_medium
-        }
-        if = {
-            limit = { has_idea = ANO_wrs_pressure_high }
-            remove_ideas = ANO_wrs_pressure_high
-        }
-
-        # 根据当前值添加对应debuff
         if = {
             limit = {
-                check_variable = { WRS_influence > 89 }
+                NOT = { has_country_flag = ANO_internal_external_initialized }
             }
-            add_ideas = ANO_wrs_pressure_high
+            set_variable = { ANO_remnant_power = 200 }
+            set_variable = { ANO_central_power = 200 }
+            set_country_flag = ANO_internal_external_initialized
         }
-        else_if = {
-            limit = {
-                check_variable = { WRS_influence > 59 }
-            }
-            add_ideas = ANO_wrs_pressure_medium
-        }
-        else_if = {
-            limit = {
-                check_variable = { WRS_influence > 29 }
-            }
-            add_ideas = ANO_wrs_pressure_low
+        else = {
+            add_to_variable = { ANO_remnant_power = 50 }
+            add_to_variable = { ANO_central_power = 50 }
         }
 
-        # 循环触发自身
+        clamp_variable = { var = ANO_remnant_power min = 0 max = 1000 }
+        clamp_variable = { var = ANO_central_power min = 0 max = 1000 }
+
+        if = {
+            limit = {
+                check_variable = { ANO_remnant_power > 999 }
+                NOT = { has_country_flag = ANO_remnant_coup_countdown }
+                NOT = { has_country_flag = ANO_central_takeover_countdown }
+            }
+            set_country_flag = ANO_remnant_coup_countdown
+            country_event = { id = ANO_influence.30 }
+            country_event = { id = ANO_influence.31 days = 14 }
+        }
+
+        if = {
+            limit = {
+                check_variable = { ANO_central_power > 999 }
+                NOT = { has_country_flag = ANO_remnant_coup_countdown }
+                NOT = { has_country_flag = ANO_central_takeover_countdown }
+            }
+            set_country_flag = ANO_central_takeover_countdown
+            country_event = { id = ANO_influence.40 }
+            country_event = { id = ANO_influence.41 days = 14 }
+        }
+
         country_event = { id = ANO_influence.1 days = 14 }
     }
 
@@ -73,7 +65,6 @@ country_event = {
 ###  渗透萨马拉 事件链                     ###
 ##############################################
 
-# 渗透开始
 country_event = {
     id = ANO_influence.10
     title = ANO_influence.10.t
@@ -88,7 +79,6 @@ country_event = {
     }
 }
 
-# 渗透成功
 country_event = {
     id = ANO_influence.11
     title = ANO_influence.11.t
@@ -99,8 +89,11 @@ country_event = {
 
     option = {
         name = ANO_influence.11.a
-        add_to_variable = { ANO_influence = 20 }
-        custom_effect_tooltip = ANO_influence_gain_20_tt
+        subtract_from_variable = { ANO_central_power = 100 }
+        subtract_from_variable = { ANO_remnant_power = 50 }
+        clamp_variable = { var = ANO_remnant_power min = 0 max = 1000 }
+        clamp_variable = { var = ANO_central_power min = 0 max = 1000 }
+        custom_effect_tooltip = ANO_samara_success_pressure_tt
         add_stability = 0.03
         add_war_support = 0.05
 
@@ -113,7 +106,6 @@ country_event = {
     }
 }
 
-# 渗透失败
 country_event = {
     id = ANO_influence.12
     title = ANO_influence.12.t
@@ -124,9 +116,94 @@ country_event = {
 
     option = {
         name = ANO_influence.12.a
-        add_to_variable = { ANO_influence = -5 }
-        custom_effect_tooltip = ANO_influence_lose_5_tt
+        add_to_variable = { ANO_central_power = 50 }
+        add_to_variable = { ANO_remnant_power = 50 }
+        clamp_variable = { var = ANO_remnant_power min = 0 max = 1000 }
+        clamp_variable = { var = ANO_central_power min = 0 max = 1000 }
+        custom_effect_tooltip = ANO_samara_failure_pressure_tt
         add_stability = -0.05
         add_war_support = -0.03
+    }
+}
+
+##############################################
+###  残党政变倒计时                        ###
+##############################################
+
+country_event = {
+    id = ANO_influence.30
+    title = ANO_remnant_coup_warning.t
+    desc = ANO_remnant_coup_warning.desc
+    picture = GFX_report_event_generic_riot
+
+    is_triggered_only = yes
+
+    option = {
+        name = ANO_remnant_coup_warning.a
+        custom_effect_tooltip = ANO_remnant_threshold_tt
+    }
+}
+
+country_event = {
+    id = ANO_influence.31
+    title = ANO_remnant_coup.t
+    desc = ANO_remnant_coup.desc
+    picture = GFX_report_event_generic_riot
+
+    is_triggered_only = yes
+
+    option = {
+        name = ANO_remnant_coup.a
+        set_country_flag = ANO_tomori_assassinated
+        set_country_flag = ANO_taki_line_placeholder_game_over
+        promote_character = ANO_rikki
+        add_stability = -0.50
+        add_war_support = -0.50
+    }
+}
+
+##############################################
+###  西俄革中央接管倒计时                  ###
+##############################################
+
+country_event = {
+    id = ANO_influence.40
+    title = ANO_central_takeover_warning.t
+    desc = ANO_central_takeover_warning.desc
+    picture = GFX_report_event_generic_political
+
+    is_triggered_only = yes
+
+    option = {
+        name = ANO_central_takeover_warning.a
+        custom_effect_tooltip = ANO_central_threshold_tt
+    }
+}
+
+country_event = {
+    id = ANO_influence.41
+    title = ANO_central_takeover.t
+    desc = ANO_central_takeover.desc
+    picture = GFX_report_event_generic_political
+
+    is_triggered_only = yes
+
+    option = {
+        name = ANO_central_takeover.a
+        if = {
+            limit = {
+                WRS = { exists = yes }
+            }
+            WRS = {
+                change_tag_from = ANO
+                annex_country = {
+                    target = ANO
+                    transfer_troops = yes
+                }
+            }
+        }
+        else = {
+            set_country_flag = ANO_central_takeover_game_over
+        }
     }
 }

@@ -2,42 +2,125 @@ guiTypes = {
     containerWindowType = {
         name = "ANO_influence_panel"
         position = { x = 0 y = 0 }
-        size = { width = 450 height = 80 }
+        size = { width = 500 height = 590 }
         clipping = no
 
-        # ANO影响力 vs WRS影响力
+        iconType = {
+            name = "ANO_ie_panel_bg"
+            position = { x = 0 y = 0 }
+            spriteType = "GFX_ANO_ie_panel_bg"
+        }
+
+        iconType = {
+            name = "ANO_ie_city"
+            position = { x = 8 y = 18 }
+            spriteType = "GFX_ANO_ie_vol_bg"
+        }
+
+        iconType = {
+            name = "ANO_ie_left_frame"
+            position = { x = 48 y = 138 }
+            spriteType = "GFX_ANO_ie_frame_left"
+        }
+
+        iconType = {
+            name = "ANO_ie_right_frame"
+            position = { x = 315 y = 138 }
+            spriteType = "GFX_ANO_ie_frame_right"
+        }
+
         instantTextBoxType = {
-            name = "ANO_influence_value_text"
-            position = { x = 10 y = 5 }
-            font = "hoi_18mbs"
-            text = "[ANO_GetInfluenceDisplay]"
-            maxWidth = 430
-            maxHeight = 24
-            format = left
+            name = "ANO_ie_title"
+            position = { x = 0 y = 154 }
+            font = "hoi_20b"
+            text = "ANO_internal_external_title"
+            maxWidth = 500
+            maxHeight = 46
+            format = centre
             alwaystransparent = yes
         }
 
-        # WRS压力等级
         instantTextBoxType = {
-            name = "ANO_wrs_pressure_text"
-            position = { x = 10 y = 30 }
-            font = "hoi_18mbs"
-            text = "[ANO_GetWRSPressure]"
-            maxWidth = 430
-            maxHeight = 24
-            format = left
+            name = "ANO_ie_desc"
+            position = { x = 38 y = 214 }
+            font = "hoi_18b"
+            text = "ANO_internal_external_desc"
+            maxWidth = 424
+            maxHeight = 74
+            format = centre
             alwaystransparent = yes
         }
 
-        # 提示
+        iconType = {
+            name = "ANO_ie_compass"
+            position = { x = 117 y = 274 }
+            spriteType = "GFX_ANO_ie_mygo_bg"
+        }
+
+        iconType = {
+            name = "ANO_ie_remnant_icon"
+            position = { x = 72 y = 330 }
+            spriteType = "GFX_ANO_ie_vol"
+        }
+
+        iconType = {
+            name = "ANO_ie_central_icon"
+            position = { x = 315 y = 344 }
+            spriteType = "GFX_ANO_ie_wrf"
+        }
+
         instantTextBoxType = {
-            name = "ANO_influence_hint_text"
-            position = { x = 10 y = 55 }
-            font = "hoi_16mbs"
-            text = "[ANO_GetInfluenceHint]"
-            maxWidth = 430
+            name = "ANO_ie_remnant_name"
+            position = { x = 20 y = 486 }
+            font = "hoi_18b"
+            text = "ANO_remnant_power_name"
+            maxWidth = 214
             maxHeight = 24
-            format = left
+            format = centre
+            alwaystransparent = yes
+        }
+
+        instantTextBoxType = {
+            name = "ANO_ie_remnant_value"
+            position = { x = 20 y = 514 }
+            font = "hoi_18b"
+            text = "ANO_remnant_power_value"
+            maxWidth = 214
+            maxHeight = 24
+            format = centre
+            alwaystransparent = yes
+        }
+
+        instantTextBoxType = {
+            name = "ANO_ie_central_name"
+            position = { x = 254 y = 486 }
+            font = "hoi_18b"
+            text = "ANO_central_power_name"
+            maxWidth = 220
+            maxHeight = 24
+            format = centre
+            alwaystransparent = yes
+        }
+
+        instantTextBoxType = {
+            name = "ANO_ie_central_value"
+            position = { x = 254 y = 514 }
+            font = "hoi_18b"
+            text = "ANO_central_power_value"
+            maxWidth = 220
+            maxHeight = 24
+            format = centre
+            alwaystransparent = yes
+        }
+
+        instantTextBoxType = {
+            name = "ANO_ie_countdown"
+            position = { x = 24 y = 552 }
+            font = "hoi_18mbs"
+            text = "[ANO_GetInternalExternalCountdown]"
+            maxWidth = 452
+            maxHeight = 32
+            format = centre
             alwaystransparent = yes
         }
     }

@@ -7,7 +7,7 @@ spriteTypes = {
     }
     spriteType = {
         name = "GFX_portrait_ANO_tomorin"
-        texturefile = "gfx/leaders/ANO/ANO_Tomorin_leader.png"
+        texturefile = "gfx/leaders/ANO/ANO_Tomorin_leader.dds"
     }
     spriteType = {
         name = "GFX_portrait_ANO_tomorin_general"
