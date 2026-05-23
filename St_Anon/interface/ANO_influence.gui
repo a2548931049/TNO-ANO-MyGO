@@ -1,0 +1,44 @@
+guiTypes = {
+    containerWindowType = {
+        name = "ANO_influence_panel"
+        position = { x = 0 y = 0 }
+        size = { width = 450 height = 80 }
+        clipping = no
+
+        # ANO影响力 vs WRS影响力
+        instantTextBoxType = {
+            name = "ANO_influence_value_text"
+            position = { x = 10 y = 5 }
+            font = "hoi_18mbs"
+            text = "[ANO_GetInfluenceDisplay]"
+            maxWidth = 430
+            maxHeight = 24
+            format = left
+            alwaystransparent = yes
+        }
+
+        # WRS压力等级
+        instantTextBoxType = {
+            name = "ANO_wrs_pressure_text"
+            position = { x = 10 y = 30 }
+            font = "hoi_18mbs"
+            text = "[ANO_GetWRSPressure]"
+            maxWidth = 430
+            maxHeight = 24
+            format = left
+            alwaystransparent = yes
+        }
+
+        # 提示
+        instantTextBoxType = {
+            name = "ANO_influence_hint_text"
+            position = { x = 10 y = 55 }
+            font = "hoi_16mbs"
+            text = "[ANO_GetInfluenceHint]"
+            maxWidth = 430
+            maxHeight = 24
+            format = left
+            alwaystransparent = yes
+        }
+    }
+}

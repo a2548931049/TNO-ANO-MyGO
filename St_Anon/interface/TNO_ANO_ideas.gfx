@@ -1,0 +1,6 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_idea_ANO_refugee_crisis"
+		texturefile = "gfx/interface/ideas/idea_ANO_refugee_crisis.png"
+	}
+}

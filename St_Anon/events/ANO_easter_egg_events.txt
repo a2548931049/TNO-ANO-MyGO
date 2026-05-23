@@ -1,0 +1,16 @@
+add_namespace = ANO_easter
+
+# 丰川祥子降临
+country_event = {
+    id = ANO_easter.1
+    title = ANO_easter_1_t
+    desc = ANO_easter_1_desc
+    picture = GFX_report_generic_military_parade
+
+    is_triggered_only = yes
+
+    option = {
+        name = ANO_easter_1_a
+        add_stability = 0.05
+    }
+}

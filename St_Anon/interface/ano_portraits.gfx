@@ -1,0 +1,133 @@
+spriteTypes = {
+
+    # ========== 领袖肖像 ==========
+    spriteType = {
+        name = "GFX_portrait_ANO_arnold"
+        texturefile = "gfx/leaders/ANO/ANON.png"
+    }
+    spriteType = {
+        name = "GFX_portrait_ANO_tomorin"
+        texturefile = "gfx/leaders/ANO/ANO_Tomorin_leader.png"
+    }
+    spriteType = {
+        name = "GFX_portrait_ANO_tomorin_general"
+        texturefile = "gfx/leaders/ANO/generals/tomorin_general.png"
+    }
+    spriteType = {
+        name = "GFX_portrait_ANO_rikki"
+        texturefile = "gfx/leaders/ANO/ANO_TAKI_LEADER.png"
+    }
+    spriteType = {
+        name = "GFX_portrait_ANO_rikki_general"
+        texturefile = "gfx/leaders/ANO/generals/rikki_general2.png"
+    }
+    spriteType = {
+        name = "GFX_portrait_ANO_soyo"
+        texturefile = "gfx/leaders/ANO/ANO_Soyo_leader.png"
+    }
+    spriteType = {
+        name = "GFX_portrait_ANO_soyo_general"
+        texturefile = "gfx/leaders/ANO/generals/Soyo_general.png"
+    }
+    spriteType = {
+        name = "GFX_portrait_ANO_rana_general"
+        texturefile = "gfx/leaders/ANO/generals/rana_general.png"
+    }
+    spriteType = {
+        name = "GFX_portrait_ANO_anon_general"
+        texturefile = "gfx/leaders/ANO/generals/anon_general.png"
+    }
+
+    # ========== 顾问肖像 ==========
+    spriteType = {
+        name = "GFX_portrait_ANO_minister_rikki"
+        texturefile = "gfx/leaders/Ministers/Minister_rikki.png"
+    }
+    spriteType = {
+        name = "GFX_portrait_ANO_minister_soyo"
+        texturefile = "gfx/leaders/Ministers/Minister_Soyo.png"
+    }
+
+    # ========== 国策图标 ==========
+    spriteType = {
+        name = "GFX_portrait_ANO_goal"
+        texturefile = "gfx/interface/goals/ANO/ANO_goals.dds"
+    }
+    spriteType = {
+        name = "GFX_focus_Tomorin_the_start_3"
+        texturefile = "gfx/interface/goals/ANO/Tomorin_the_start_3.dds"
+    }
+    spriteType = {
+        name = "GFX_focus_reme-1955"
+        texturefile = "gfx/interface/goals/ANO/reme-1955.dds"
+    }
+    spriteType = {
+        name = "GFX_focus_germay_bomber"
+        texturefile = "gfx/interface/goals/ANO/germay_bomber.dds"
+    }
+    spriteType = {
+        name = "GFX_focus_He_is_looking_us"
+        texturefile = "gfx/interface/goals/ANO/He_is_looking_us.dds"
+    }
+    spriteType = {
+        name = "GFX_focus_We_Dont_Want_to_be_slave_"
+        texturefile = "gfx/interface/goals/ANO/We_Dont_Want_to_be_slave_.dds"
+    }
+    spriteType = {
+        name = "GFX_focus_Let_Chihaya_Anon_in_Charge"
+        texturefile = "gfx/interface/goals/ANO/Let_Chihaya_Anon_in_Charge.dds"
+    }
+    spriteType = {
+        name = "GFX_focus_Go_to_construction_2"
+        texturefile = "gfx/interface/goals/ANO/Go_to_construction_2.dds"
+    }
+    spriteType = {
+        name = "GFX_focus_Clear_them"
+        texturefile = "gfx/interface/goals/ANO/Clear_them.png"
+    }
+    spriteType = {
+        name = "GFX_focus_Boost_People_Confidences"
+        texturefile = "gfx/interface/goals/ANO/Boost_People_Confidences.png"
+    }
+    spriteType = {
+        name = "GFX_focus_Rebuild_Our_Needs_tomorin"
+        texturefile = "gfx/interface/goals/ANO/Rebuild_Our_Needs_tomorin.png"
+    }
+    spriteType = {
+        name = "GFX_focus_Soviet_arms"
+        texturefile = "gfx/interface/goals/ANO/Soviet_arms.png"
+    }
+    spriteType = {
+        name = "GFX_focus_Look_Again"
+        texturefile = "gfx/interface/goals/ANO/Look_Again.png"
+    }
+    spriteType = {
+        name = "GFX_focus_God_Anon"
+        texturefile = "gfx/interface/goals/ANO/God_Anon.png"
+    }
+    spriteType = {
+        name = "GFX_focus_Anon_way_to_god2"
+        texturefile = "gfx/interface/goals/ANO/Anon_way_to_god2.png"
+    }
+
+    # ========== 彩蛋: 丰川祥子 ==========
+    spriteType = {
+        name = "GFX_portrait_ANO_sakiko"
+        texturefile = "gfx/leaders/ANO/ANO_sakiko_leader.png"
+    }
+    spriteType = {
+        name = "GFX_portrait_ANO_sakiko_army"
+        texturefile = "gfx/leaders/ANO/generals/sakiko_general.png"
+    }
+
+    # ========== Ideas 图标 ==========
+    spriteType = {
+        name = "GFX_portrait_ANO_icon"
+        texturefile = "gfx/interface/ideas/ANO_idea_my_spirit_icon.dds"
+    }
+}
+    # ideologies
+    spriteType = {
+        name = "GFX_national_socialism_Sakiko_cult_subtype"
+        texturefile = "gfx/ideologies/GFX_national_socialism_Sakiko_cult_subtype.png"
+    }

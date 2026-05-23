@@ -1,0 +1,14 @@
+scripted_gui = {
+    ANO_influence_sg = {
+        context_type = decision_category
+        window_name = "ANO_influence_panel"
+
+        visible = {
+            tag = ANO
+        }
+
+        ai_enabled = {
+            always = no
+        }
+    }
+}

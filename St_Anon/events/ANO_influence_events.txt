@@ -1,0 +1,132 @@
+add_namespace = ANO_influence
+
+##############################################
+###  每14天 权力博弈 tick（自循环）         ###
+##############################################
+
+country_event = {
+    id = ANO_influence.1
+    hidden = yes
+    fire_only_once = no
+
+    trigger = {
+        tag = ANO
+        exists = yes
+    }
+
+    immediate = {
+        # ANO 被动 +3 影响力
+        add_to_variable = { ANO_influence = 3 }
+
+        # WRS 被动 +5 影响力（西俄革势力更大，增长更快）
+        add_to_variable = { WRS_influence = 5 }
+
+        # WRS 影响力上限 120
+        clamp_variable = { var = WRS_influence min = 0 max = 120 }
+
+        # ===== 根据 WRS 影响力切换 debuff =====
+
+        # 清除旧debuff
+        if = {
+            limit = { has_idea = ANO_wrs_pressure_low }
+            remove_ideas = ANO_wrs_pressure_low
+        }
+        if = {
+            limit = { has_idea = ANO_wrs_pressure_medium }
+            remove_ideas = ANO_wrs_pressure_medium
+        }
+        if = {
+            limit = { has_idea = ANO_wrs_pressure_high }
+            remove_ideas = ANO_wrs_pressure_high
+        }
+
+        # 根据当前值添加对应debuff
+        if = {
+            limit = {
+                check_variable = { WRS_influence > 89 }
+            }
+            add_ideas = ANO_wrs_pressure_high
+        }
+        else_if = {
+            limit = {
+                check_variable = { WRS_influence > 59 }
+            }
+            add_ideas = ANO_wrs_pressure_medium
+        }
+        else_if = {
+            limit = {
+                check_variable = { WRS_influence > 29 }
+            }
+            add_ideas = ANO_wrs_pressure_low
+        }
+
+        # 循环触发自身
+        country_event = { id = ANO_influence.1 days = 14 }
+    }
+
+    option = {
+        name = ANO_influence.1.a
+    }
+}
+
+##############################################
+###  渗透萨马拉 事件链                     ###
+##############################################
+
+# 渗透开始
+country_event = {
+    id = ANO_influence.10
+    title = ANO_influence.10.t
+    desc = ANO_influence.10.desc
+    picture = GFX_report_event_generic_diplomacy
+
+    is_triggered_only = yes
+
+    option = {
+        name = ANO_influence.10.a
+        custom_effect_tooltip = ANO_infiltration_underway_tt
+    }
+}
+
+# 渗透成功
+country_event = {
+    id = ANO_influence.11
+    title = ANO_influence.11.t
+    desc = ANO_influence.11.desc
+    picture = GFX_report_event_generic_diplomacy
+
+    is_triggered_only = yes
+
+    option = {
+        name = ANO_influence.11.a
+        add_to_variable = { ANO_influence = 20 }
+        custom_effect_tooltip = ANO_influence_gain_20_tt
+        add_stability = 0.03
+        add_war_support = 0.05
+
+        SAM = {
+            add_timed_idea = {
+                idea = SAM_infiltrated_by_ANO
+                days = 360
+            }
+        }
+    }
+}
+
+# 渗透失败
+country_event = {
+    id = ANO_influence.12
+    title = ANO_influence.12.t
+    desc = ANO_influence.12.desc
+    picture = GFX_report_event_generic_diplomacy
+
+    is_triggered_only = yes
+
+    option = {
+        name = ANO_influence.12.a
+        add_to_variable = { ANO_influence = -5 }
+        custom_effect_tooltip = ANO_influence_lose_5_tt
+        add_stability = -0.05
+        add_war_support = -0.03
+    }
+}

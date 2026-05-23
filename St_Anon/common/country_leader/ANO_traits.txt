@@ -1,0 +1,30 @@
+leader_traits = {
+	Tomorin_traits = {
+		random = no
+		political_power_gain = -0.05
+		stability_factor = -0.05
+	}
+	Soyo_traits = {
+		random = no
+		political_power_gain = 0.15
+		consumer_goods_factor = -0.10
+		stability_factor = 0.10
+		production_speed_buildings_factor = 0.15
+	}
+	Taki_Traits = {
+		random = no
+		army_defence_factor = 0.15
+		army_attack_factor = 0.15
+	}
+	Sakiko_theorist_trait = {
+		random = no
+		research_speed_factor = 0.15
+		army_org_factor = 0.15
+		planning_speed = 0.25
+		max_planning = 0.25
+	}
+	Sakiko_Leader_trait = {
+		random = no
+		
+	}
+}
